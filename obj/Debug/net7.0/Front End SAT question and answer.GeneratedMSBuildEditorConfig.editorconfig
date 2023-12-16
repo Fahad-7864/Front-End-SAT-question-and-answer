@@ -1,0 +1,61 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Front_End_SAT_question_and_answer
+build_property.RootNamespace = Front_End_SAT_question_and_answer
+build_property.ProjectDir = C:\Users\fahad\source\repos\Front End SAT question and answer\Front End SAT question and answer\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\fahad\source\repos\Front End SAT question and answer\Front End SAT question and answer
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Pages/EnglishPractice.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW5nbGlzaFByYWN0aWNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Pages/HomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Pages/MathPractice.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWF0aFByYWN0aWNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-s4788lezld
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-c7dlcib2qu
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

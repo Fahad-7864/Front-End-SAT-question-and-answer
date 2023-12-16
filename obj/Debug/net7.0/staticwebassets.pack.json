@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Front End SAT question and answer.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Front End SAT question and answer.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Front End SAT question and answer.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Front End SAT question and answer.props",
+      "PackagePath": "build\\Front End SAT question and answer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Front End SAT question and answer.props",
+      "PackagePath": "buildMultiTargeting\\Front End SAT question and answer.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Front End SAT question and answer.props",
+      "PackagePath": "buildTransitive\\Front End SAT question and answer.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

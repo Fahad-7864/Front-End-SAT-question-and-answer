@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Front End SAT question and answer.props" />
+</Project>
