@@ -1,26 +1,34 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<PageTitle>SAT Exam Practise</PageTitle>
+<PageTitle>SAT Exam Practice</PageTitle>
 
 <div class="text-center">
     <h1>Welcome to the SAT Exam Practice App!</h1>
     <p>Get ready to enhance your skills with our practice questions.</p>
 
-    <div class="mt-4">
-        <h2>Select a Subject to Begin</h2>
-        <div class="row">
-            <div class="col-md-6 p-2">
-                <a href="/math-practice" class="btn btn-primary btn-lg">
-                    <span class="oi oi-plus" aria-hidden="true"></span> Math Practice
-                </a>
-            </div>
-            <div class="col-md-6 p-2">
-                <a href="/english-practice" class="btn btn-secondary btn-lg">
-                    <span class="oi oi-book" aria-hidden="true"></span> English Practice
-                </a>
-            </div>
-        </div>
+    <div>
+        Are you a student or a teacher?
+        <select @onchange="OnRoleSelected">
+            <option value="">Select Role...</option>
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+        </select>
     </div>
 </div>
 
+@code {
+    private void OnRoleSelected(ChangeEventArgs e)
+    {
+        var selectedRole = e.Value.ToString();
+        if (selectedRole == "Teacher")
+        {
+            NavigationManager.NavigateTo("/teacher-home");
+        }
+        else if (selectedRole == "Student")
+        {
+            NavigationManager.NavigateTo("/student-home");
+        }
+    }
+}
 

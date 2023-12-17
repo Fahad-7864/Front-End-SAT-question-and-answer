@@ -36,6 +36,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWF0aFByYWN0aWNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Pages/StudentHomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3R1ZGVudEhvbWVQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Pages/TeacherHomePage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVhY2hlckhvbWVQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/fahad/source/repos/Front End SAT question and answer/Front End SAT question and answer/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
