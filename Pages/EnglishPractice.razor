@@ -1,5 +1,142 @@
-﻿<h3>Component</h3>
+﻿@page "/english-practice"
+@inject IWebHostEnvironment Environment
+@using System.Text.Json
+
+<h3>English Practice</h3>
+@if (questions != null && questions.Any())
+{
+    /*
+     * This section of the code is responsible for displaying the quiz interface to the user.
+     * It iterates over the list of questions that have been loaded into the 'questions' variable.
+     * For each question, it displays the question text and generates a checkbox for each of the possible options.
+     * The HandleCheckboxChange method is linked to each checkbox to track user selections.
+     * A 'Submit Answer' button is provided to submit the user's answer, which triggers the SubmitAnswer method.
+     */
+    <div class="question-container">
+        <p>@questions[currentQuestionIndex].QuestionText</p>
+        @foreach (var option in questions[currentQuestionIndex].Options)
+        {
+            <div>
+                // Render a checkbox for each option
+                <input type="checkbox" id="@option.Key" name="answer" @onchange="(e) => HandleCheckboxChange(e, option.Key)" />
+                <label for="@option.Key">@option.Value</label>
+            </div>
+        }
+
+        // Button to submit the answer
+        <button @onclick="SubmitAnswer">Submit Answer</button>
+        // Display feedback message
+        @if (!string.IsNullOrEmpty(feedbackMessage))
+        {
+            <p class="feedback-message">@feedbackMessage</p>
+            // Button to move to the next question
+            <button @onclick="MoveToNextQuestion">Next Question</button>
+        }
+    </div>
+}
+else
+{
+    // Message displayed while loading questions
+    <p>Loading questions...</p>
+}
 
 @code {
+    private List<EnglishQuestion> questions = new List<EnglishQuestion>();
+    private int currentQuestionIndex = 0;
+    private string feedbackMessage = string.Empty;
+    private List<string> selectedAnswers = new List<string>();
 
+    // Method to load questions from a JSON file
+    protected override async Task OnInitializedAsync()
+    {
+        var filePath = Path.Combine(Environment.WebRootPath, "englishPracticeQuestions.json");
+        var json = await File.ReadAllTextAsync(filePath);
+
+        try
+        {
+            // Deserialize the JSON into a list of EnglishQuestion objects
+            questions = JsonSerializer.Deserialize<List<EnglishQuestion>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+        catch (JsonException ex)
+        {
+            Console.WriteLine("JsonException occurred while deserializing: " + ex.Message);
+        }
+    }
+
+
+    /*
+     * The SubmitAnswer method is responsible for checking whether the user's selected answers match the correct answer for the current question.
+     * It first verifies if a correct answer is provided for the question. If not, an error is logged, and the method exits.
+     * The method then proceeds to combine the user's selected answers (gathered from the HandleCheckboxChange method) into a single string.
+     * This combination involves joining the selected answers together, considering multiple selections, and sorting them alphabetically.
+     * The combined string of user-selected answers is then compared to the correct answer from the JSON file at the current question index.
+     * StringComparison.OrdinalIgnoreCase is used for comparison, making it case-insensitive. Future versions may change this behavior.
+     * Based on this comparison, a feedback message is set to either 'Correct!' or 'Incorrect. Try again!'
+     */
+    private void SubmitAnswer()
+    {
+        // Check if there is a correct answer for the current question
+        if (string.IsNullOrEmpty(questions[currentQuestionIndex].CorrectAnswer))
+        {
+            Console.WriteLine("Error: No correct answer provided for the question.");
+            return;
+        }
+
+        // Combine selected answers and compare with the correct answer
+        string combinedSelectedAnswers = string.Join("", selectedAnswers.OrderBy(a => a));
+        bool isCorrect = combinedSelectedAnswers.Equals(questions[currentQuestionIndex].CorrectAnswer, StringComparison.OrdinalIgnoreCase);
+        feedbackMessage = isCorrect ? "Correct!" : "Incorrect. Try again!";
+    }
+
+
+ 
+    /*
+     * The HandleCheckboxChange method is designed to keep track of which options a user has selected in a quiz.
+     *  When a user clicks on a checkbox, this method is triggered. It then determines whether the checkbox was checked or unchecked. 
+     * If the checkbox is checked, the corresponding option (like "a", "b", etc.) is added to a list named selectedAnswers. 
+     *  This list keeps a record of all the options the user has chosen.
+     *  if a user unchecks a box, the corresponding option is removed from this list.
+     *  This method is solely responsible for tracking the user's selections and 
+     
+     */
+    private void HandleCheckboxChange(ChangeEventArgs e, string optionKey)
+    {
+        // Update the list of selected answers based on checkbox state
+        if (bool.TryParse(e.Value?.ToString(), out bool isChecked) && isChecked)
+        {
+            if (!selectedAnswers.Contains(optionKey))
+            {
+                selectedAnswers.Add(optionKey);
+            }
+        }
+        else
+        {
+            selectedAnswers.Remove(optionKey);
+        }
+    }
+
+    // Method to move to the next question in the quiz
+    private void MoveToNextQuestion()
+    {
+        // Increment the question index and reset states for the next question
+        currentQuestionIndex++;
+        if (currentQuestionIndex >= questions.Count)
+        {
+            currentQuestionIndex = 0; 
+        }
+
+        selectedAnswers.Clear(); 
+        feedbackMessage = string.Empty; 
+    }
+
+    // Class representing each question in the quiz
+    public class EnglishQuestion
+    {
+        // Unique identifier for the question
+        public int Id { get; set; } 
+        public string QuestionText { get; set; } 
+        // Using a dictionairy as an array was causing too many issues.
+        public Dictionary<string, string> Options { get; set; } 
+        public string CorrectAnswer { get; set; } 
+    }
 }

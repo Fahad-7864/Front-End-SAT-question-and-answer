@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8vIcnguPDo2Tjojb0zqA0AG3qNwrGbmMdP27A402CP0=",
+  "Hash": "/VnBvBQfTV2ojATNr0+e/SjrKF9P6bdOil0kKPP1UEU=",
   "Source": "Front End SAT question and answer",
   "BasePath": "_content/Front End SAT question and answer",
   "Mode": "Default",
@@ -253,6 +253,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\EnglishPracticeQuestions.json",
+      "SourceId": "Front End SAT question and answer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\",
+      "BasePath": "_content/Front End SAT question and answer",
+      "RelativePath": "EnglishPracticeQuestions.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\EnglishPracticeQuestions.json"
     },
     {
       "Identity": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\favicon.png",

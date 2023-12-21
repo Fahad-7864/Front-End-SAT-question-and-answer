@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Front End SAT question and answer.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\EnglishPracticeQuestions.json",
+      "PackagePath": "staticwebassets\\EnglishPracticeQuestions.json"
+    },
+    {
       "Id": "C:\\Users\\fahad\\source\\repos\\Front End SAT question and answer\\Front End SAT question and answer\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },

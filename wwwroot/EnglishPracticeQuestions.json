@@ -1,0 +1,220 @@
+[
+    {
+        "id": 1,
+        "questionText": "Choose the word that completes the sentence correctly. 'The ______ was shining brightly in the sky.'",
+        "options": {
+            "a": "Sun",
+            "b": "Fun",
+            "c": "Bun",
+            "d": "None"
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "id": 2,
+        "questionText": "Tick the box where the apostrophe goes to show possession. 'Sarahs cat is very fluffy.'",
+        "options": {
+            "a": "Sarah's",
+            "b": "Sarahs'",
+            "c": "Sarahes",
+            "d": "Sarah s"
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "id": 3,
+        "questionText": "Which of the following is a question?",
+        "options": {
+            "a": "You have a nice hat.",
+            "b": "What is your name?",
+            "c": "I like to read books.",
+            "d": "She runs fast."
+        },
+        "correctAnswer": "b"
+    },
+    {
+        "id": 4,
+        "questionText": "What type of word is 'quickly'?",
+        "options": {
+            "a": "Adjective",
+            "b": "Verb",
+            "c": "Adverb",
+            "d": "Noun"
+        },
+        "correctAnswer": "c"
+    },
+    {
+        "id": 5,
+        "questionText": "Which sentence is in the future tense?",
+        "options": {
+            "a": "She danced all night.",
+            "b": "They will go to the zoo.",
+            "c": "He was eating an apple.",
+            "d": "I am writing a letter."
+        },
+        "correctAnswer": "b"
+    },
+    {
+        "id": 6,
+        "questionText": "Choose the correctly punctuated sentence.",
+        "options": {
+            "a": "Are we there yet she asked.",
+            "b": "Are we there yet? she asked.",
+            "c": "Are we there yet, she asked?",
+            "d": "Are we there yet? She asked."
+        },
+        "correctAnswer": "b"
+    },
+    {
+        "id": 7,
+        "questionText": "Add a suffix to the word 'kind' to make a new word.",
+        "options": {
+            "a": "Kindly",
+            "b": "Kindest",
+            "c": "Kindness",
+            "d": "Kinder"
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "id": 8,
+        "questionText": "Circle the adjective in the sentence below. 'The blue ocean was calm and beautiful.'",
+        "options": {
+            "a": "Blue",
+            "b": "Ocean",
+            "c": "Calm",
+            "d": "Beautiful"
+        },
+        "correctAnswer": "ad"
+    },
+    {
+        "id": 9,
+        "questionText": "Which sentence uses a conjunction correctly?",
+        "options": {
+            "a": "I want juice and water.",
+            "b": "I want and juice water.",
+            "c": "I want juice water and.",
+            "d": "I and want juice water."
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "id": 10,
+        "questionText": "Choose the sentence that is an exclamation.",
+        "options": {
+            "a": "What a wonderful surprise you gave me!",
+            "b": "How did you solve the puzzle?",
+            "c": "Please pass the salt.",
+            "d": "I think it is going to rain."
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "id": 11,
+        "questionText": "Tick the verb in the sentence below. 'Tom plays football every Sunday.'",
+        "options": {
+            "a": "Tom",
+            "b": "Plays",
+            "c": "Football",
+            "d": "Sunday"
+        },
+        "correctAnswer": "b"
+    },
+    {
+        "id": 12,
+        "questionText": "Which sentence is written in the past tense?",
+        "options": {
+            "a": "She will visit her grandmother.",
+            "b": "She is visiting her grandmother.",
+            "c": "She visited her grandmother.",
+            "d": "She visits her grandmother."
+        },
+        "correctAnswer": "c"
+    },
+    {
+        "id": 13,
+        "questionText": "Circle the noun in the sentence below. 'The rabbit hopped across the field.'",
+        "options": {
+            "a": "The",
+            "b": "Rabbit",
+            "c": "Hopped",
+            "d": "Field"
+        },
+        "correctAnswer": "bd"
+    },
+    {
+        "id": 14,
+        "questionText": "Where does the full stop go in this sentence? 'We had a great time at the park we played on the swings'",
+        "options": {
+            "a": "After 'park'",
+            "b": "After 'great'",
+            "c": "After 'swings'",
+            "d": "After 'time'"
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "id": 15,
+        "questionText": "Choose the sentence with correct capitalization.",
+        "options": {
+            "a": "i like to Play chess with my brother.",
+            "b": "On saturdays, we go to the library.",
+            "c": "The Eiffel tower is in Paris.",
+            "d": "She is reading 'Harry Potter' by J.K. Rowling."
+        },
+        "correctAnswer": "d"
+    },
+    {
+        "id": 16,
+        "questionText": "Which word needs an apostrophe to show it is a contraction?",
+        "options": {
+            "a": "Theyre",
+            "b": "Are",
+            "c": "Were",
+            "d": "Their"
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "id": 17,
+        "questionText": "Tick two words that are synonyms for 'happy'.",
+        "options": {
+            "a": "Sad",
+            "b": "Joyful",
+            "c": "Miserable",
+            "d": "Cheerful"
+        },
+        "correctAnswer": "bd"
+    },
+    {
+        "id": 18,
+        "questionText": "Which word is an antonym for 'hot'?",
+        "options": {
+            "a": "Warm",
+            "b": "Boiling",
+            "c": "Chilly",
+            "d": "Steaming"
+        },
+        "correctAnswer": "c"
+    },
+    {
+        "id": 19,
+        "questionText": "Add a question mark or a full stop to the sentence below. 'Why are you late'",
+        "options": {
+            "a": "Why are you late?",
+            "b": "Why are you late."
+        },
+        "correctAnswer": "a"
+    },
+    {
+        "id": 20,
+        "questionText": "Circle the two verbs in the sentence below. 'She whispered to the dog and it wagged its tail.'",
+        "options": {
+            "a": "Whispered",
+            "b": "Dog",
+            "c": "Wagged",
+            "d": "Tail"
+        },
+        "correctAnswer": "ac"
+    }
+]
