@@ -1,6 +1,7 @@
 ﻿@page "/english-practice"
 @inject IWebHostEnvironment Environment
 @using System.Text.Json
+@using System.Text
 
 <h3>English Practice</h3>
 @if (questions != null && questions.Any())
@@ -17,7 +18,6 @@
         @foreach (var option in questions[currentQuestionIndex].Options)
         {
             <div>
-                // Render a checkbox for each option
                 <input type="checkbox" id="@option.Key" name="answer" @onchange="(e) => HandleCheckboxChange(e, option.Key)" />
                 <label for="@option.Key">@option.Value</label>
             </div>
@@ -32,6 +32,16 @@
             // Button to move to the next question
             <button @onclick="MoveToNextQuestion">Next Question</button>
         }
+
+        @if (currentQuestionIndex >= questions.Count)
+        {
+        <button @onclick="DisplayResults">Show Results</button>
+        }
+
+        <div class="score-display">
+            <pre>@GetScoreDisplay()</pre>
+        </div>
+
     </div>
 }
 else
@@ -45,6 +55,7 @@ else
     private int currentQuestionIndex = 0;
     private string feedbackMessage = string.Empty;
     private List<string> selectedAnswers = new List<string>();
+    private List<QuizResult> quizResults = new List<QuizResult>();
 
     // Method to load questions from a JSON file
     protected override async Task OnInitializedAsync()
@@ -85,8 +96,42 @@ else
         // Combine selected answers and compare with the correct answer
         string combinedSelectedAnswers = string.Join("", selectedAnswers.OrderBy(a => a));
         bool isCorrect = combinedSelectedAnswers.Equals(questions[currentQuestionIndex].CorrectAnswer, StringComparison.OrdinalIgnoreCase);
-        feedbackMessage = isCorrect ? "Correct!" : "Incorrect. Try again!";
+
+        // Update feedback message based on whether the answer is correct or not
+        if (isCorrect)
+        {
+            feedbackMessage = "Correct!";
+        }
+        else
+        {
+            // If incorrect, show the correct answer in the feedback
+            feedbackMessage = $"Incorrect. The correct answer is: {questions[currentQuestionIndex].CorrectAnswer}.";
+        }
+
+        // Find if there's an existing result for the current question
+        var existingResult = quizResults.FirstOrDefault(q => q.QuestionId == questions[currentQuestionIndex].Id);
+
+        if (existingResult != null)
+        {
+            // Increment attempts if the question has been answered before
+            existingResult.Attempts++;
+            existingResult.IsCorrect = isCorrect; // Update the correctness
+        }
+        else
+        {
+            // Add a new result for first attempt
+            quizResults.Add(new QuizResult
+                {
+                    QuestionId = questions[currentQuestionIndex].Id,
+                    UserAnswer = combinedSelectedAnswers,
+                    IsCorrect = isCorrect
+                });
+        }
+
+        // Can move to the next question here 
+        // MoveToNextQuestion();
     }
+
 
 
  
@@ -129,6 +174,50 @@ else
         feedbackMessage = string.Empty; 
     }
 
+    private void DisplayResults()
+{
+    // Count the number of correct answers
+    int correctAnswersCount = quizResults.Count(result => result.IsCorrect);
+
+    // Display the count of correct answers
+    Console.WriteLine($"You got {correctAnswersCount} out of {questions.Count} questions correct!");
+
+    // Optionally, display detailed results for each question
+    foreach (var result in quizResults)
+    {
+        var question = questions.FirstOrDefault(q => q.Id == result.QuestionId);
+        if (question != null)
+        {
+            string status = result.IsCorrect ? "Correct" : "Incorrect";
+            Console.WriteLine($"Question: {question.QuestionText} - Your Answer: {result.UserAnswer} - {status}");
+        }
+    }
+}
+
+
+    private string GetScoreDisplay()
+    {
+        // Initialize a StringBuilder, which is good for concatenating strings in a loop.
+        StringBuilder scoreBuilder = new StringBuilder();
+        foreach (var question in questions)
+        {
+            // Try to find a result in 'quizResults' for the current question.
+            var result = quizResults.FirstOrDefault(q => q.QuestionId == question.Id);
+            if (result != null)
+            {
+                scoreBuilder.AppendLine($"Question {question.Id}: {(result.IsCorrect ? 1 : 0)}/{result.Attempts}");
+            }
+            else
+            {
+                scoreBuilder.AppendLine($"Question {question.Id}: Not Attempted");
+            }
+        }
+        return scoreBuilder.ToString();
+    }
+
+
+
+
     // Class representing each question in the quiz
     public class EnglishQuestion
     {
@@ -138,5 +227,16 @@ else
         // Using a dictionairy as an array was causing too many issues.
         public Dictionary<string, string> Options { get; set; } 
         public string CorrectAnswer { get; set; } 
+
     }
+
+    public class QuizResult
+    {
+        public int QuestionId { get; set; }
+        public string UserAnswer { get; set; }
+        public bool IsCorrect { get; set; }
+        public int Attempts { get; set; } = 1; // Initialize with 1 attempt by default
+    }
+
+
 }
