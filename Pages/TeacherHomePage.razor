@@ -1,3 +1,87 @@
 ﻿@page "/teacher-home"
 
 <h3>Teacher's Dashboard</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4>Completed Tests Overview</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Class</th>
+                        <th>English Score</th>
+                        <th>Math Score</th>
+                        <th>Date Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var test in completedTests)
+                    {
+                        <tr>
+                            <td>@test.StudentName</td>
+                            <td>@test.ClassName</td>
+                            <td>@test.EnglishScore</td>
+                            <td>@test.MathScore</td>
+                            <td>@test.DateCompleted.ToShortDateString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <h4>Assign Test as Homework</h4>
+            <div class="form-group">
+                <label for="testSelect">Select Test:</label>
+                <select class="form-control" id="testSelect">
+                    <option>Math Practice</option>
+                    <option>English Practice</option>
+                    // Add more test options as needed
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="classSelect">Select Class:</label>
+                <select class="form-control" id="classSelect">
+                    <option>Class 1</option>
+                    <option>Class 2</option>
+                    // Add more class options as needed
+                </select>
+            </div>
+            <button class="btn btn-primary">Assign Homework</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<CompletedTest> completedTests = new List<CompletedTest>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Fetch the actual completed test data
+        LoadSampleData();
+    }
+
+    private void LoadSampleData()
+    {
+        // Sample data as an example
+        completedTests.Add(new CompletedTest { StudentName = "Alice Smith", ClassName = "Class 1", EnglishScore = 85, MathScore = 90, DateCompleted = DateTime.Now.AddDays(-1) });
+        completedTests.Add(new CompletedTest { StudentName = "Bob Johnson", ClassName = "Class 2", EnglishScore = 75, MathScore = 88, DateCompleted = DateTime.Now.AddDays(-2) });
+    }
+
+    private class CompletedTest
+    {
+        public string StudentName { get; set; }
+        public string ClassName { get; set; }
+        public int EnglishScore { get; set; }
+        public int MathScore { get; set; }
+        public DateTime DateCompleted { get; set; }
+    }
+
+    // Method to handle homework assignment - to be implemented
+    private void AssignHomework()
+    {
+    }
+}

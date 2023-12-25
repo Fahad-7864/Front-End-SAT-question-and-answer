@@ -42,7 +42,16 @@
             <pre>@GetScoreDisplay()</pre>
         </div>
 
+       <div class="col-md-4">
+        <h4>Question Navigation</h4>
+        <div class="calendar-grid-container">
+            @for (int i = 1; i <= 20; i++)
+            {
+                <div class="calendar-grid-item">@i</div>
+            }
+        </div>
     </div>
+</div>
 }
 else
 {
@@ -51,6 +60,8 @@ else
 }
 
 @code {
+
+
     private List<EnglishQuestion> questions = new List<EnglishQuestion>();
     private int currentQuestionIndex = 0;
     private string feedbackMessage = string.Empty;
@@ -205,6 +216,7 @@ else
             var result = quizResults.FirstOrDefault(q => q.QuestionId == question.Id);
             if (result != null)
             {
+                // If a result exists, append a line to 'scoreBuilder' with the question ID,
                 scoreBuilder.AppendLine($"Question {question.Id}: {(result.IsCorrect ? 1 : 0)}/{result.Attempts}");
             }
             else
@@ -240,3 +252,20 @@ else
 
 
 }
+
+<style>
+    .calendar-grid-container {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr); /* 7 columns to mimic a week */
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .calendar-grid-item {
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        min-height: 40px; /* Ensures uniform height */
+    }
+</style>
