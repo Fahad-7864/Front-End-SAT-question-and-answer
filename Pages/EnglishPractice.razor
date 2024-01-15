@@ -4,62 +4,76 @@
 @using System.Text
 
 <h3>English Practice</h3>
-@if (questions != null && questions.Any())
+
+@if (DateTime.Now >= testStartTime && DateTime.Now <= testEndTime)
 {
-    /*
-     * This section of the code is responsible for displaying the quiz interface to the user.
-     * It iterates over the list of questions that have been loaded into the 'questions' variable.
-     * For each question, it displays the question text and generates a checkbox for each of the possible options.
-     * The HandleCheckboxChange method is linked to each checkbox to track user selections.
-     * A 'Submit Answer' button is provided to submit the user's answer, which triggers the SubmitAnswer method.
-     */
-    <div class="question-container">
-        <p>@questions[currentQuestionIndex].QuestionText</p>
-        @foreach (var option in questions[currentQuestionIndex].Options)
+    if (!userTestStartTime.HasValue)
+    {
+        StartTest();
+    }
+
+    if (!IsTestTimeExceeded())
+    {
+        if (questions != null && questions.Any())
         {
-            <div>
-                <input type="checkbox" id="@option.Key" name="answer" @onchange="(e) => HandleCheckboxChange(e, option.Key)" />
-                <label for="@option.Key">@option.Value</label>
+            <div class="question-container">
+                <p>@questions[currentQuestionIndex].QuestionText</p>
+                @foreach (var option in questions[currentQuestionIndex].Options)
+                {
+                    <div>
+                        <input type="checkbox" id="@option.Key" name="answer" @onchange="(e) => HandleCheckboxChange(e, option.Key)" />
+                        <label for="@option.Key">@option.Value</label>
+                    </div>
+                }
+
+                <button @onclick="SubmitAnswer">Submit Answer</button>
+                @if (!string.IsNullOrEmpty(feedbackMessage))
+                {
+                    <p class="feedback-message">@feedbackMessage</p>
+                    <button @onclick="MoveToNextQuestion">Next Question</button>
+                }
+
+                @if (currentQuestionIndex >= questions.Count)
+                {
+                    <button @onclick="DisplayResults">Show Results</button>
+                }
+
+                <div class="score-display">
+                    <pre>@GetScoreDisplay()</pre>
+                </div>
+
+                <div class="col-md-4">
+                    <h4>Question Navigation</h4>
+                    <div class="calendar-grid-container">
+                        @for (int i = 1; i <= 20; i++)
+                        {
+                            <div class="calendar-grid-item">@i</div>
+                        }
+                    </div>
+                </div>
             </div>
         }
-
-        // Button to submit the answer
-        <button @onclick="SubmitAnswer">Submit Answer</button>
-        // Display feedback message
-        @if (!string.IsNullOrEmpty(feedbackMessage))
+        else
         {
-            <p class="feedback-message">@feedbackMessage</p>
-            // Button to move to the next question
-            <button @onclick="MoveToNextQuestion">Next Question</button>
+            <p>Loading questions...</p>
         }
-
-        @if (currentQuestionIndex >= questions.Count)
-        {
-        <button @onclick="DisplayResults">Show Results</button>
-        }
-
-        <div class="score-display">
-            <pre>@GetScoreDisplay()</pre>
-        </div>
-
-       <div class="col-md-4">
-        <h4>Question Navigation</h4>
-        <div class="calendar-grid-container">
-            @for (int i = 1; i <= 20; i++)
-            {
-                <div class="calendar-grid-item">@i</div>
-            }
-        </div>
-    </div>
-</div>
+    }
+    else
+    {
+        <p>Your time for the test has expired.</p>
+    }
 }
 else
 {
-    // Message displayed while loading questions
-    <p>Loading questions...</p>
+    <p>The test is not currently available. Please come back later.</p>
 }
 
+
 @code {
+    private DateTime testStartTime = new DateTime(2024, 01, 15, 21, 45, 00);
+    private DateTime testEndTime;
+    private DateTime? userTestStartTime = null;
+
 
 
     private List<EnglishQuestion> questions = new List<EnglishQuestion>();
@@ -71,18 +85,43 @@ else
     // Method to load questions from a JSON file
     protected override async Task OnInitializedAsync()
     {
-        var filePath = Path.Combine(Environment.WebRootPath, "englishPracticeQuestions.json");
-        var json = await File.ReadAllTextAsync(filePath);
+        testEndTime = testStartTime.AddHours(1); // Initialize testEndTime here
 
-        try
+        DateTime now = DateTime.Now;
+        if (now >= testStartTime && now <= testEndTime)
         {
-            // Deserialize the JSON into a list of EnglishQuestion objects
-            questions = JsonSerializer.Deserialize<List<EnglishQuestion>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var filePath = Path.Combine(Environment.WebRootPath, "englishPracticeQuestions.json");
+            var json = await File.ReadAllTextAsync(filePath);
+            try
+            {
+                questions = JsonSerializer.Deserialize<List<EnglishQuestion>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine("JsonException occurred while deserializing: " + ex.Message);
+            }
         }
-        catch (JsonException ex)
+        else
         {
-            Console.WriteLine("JsonException occurred while deserializing: " + ex.Message);
+            questions = new List<EnglishQuestion>();
         }
+    }
+
+    private void StartTest()
+    {
+        if (!userTestStartTime.HasValue)
+        {
+            userTestStartTime = DateTime.Now;
+        }
+    }
+
+    private bool IsTestTimeExceeded()
+    {
+        if (userTestStartTime.HasValue)
+        {
+            return DateTime.Now > userTestStartTime.Value.AddMinutes(30);
+        }
+        return false;
     }
 
 
